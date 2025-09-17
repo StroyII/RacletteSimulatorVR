@@ -26,3 +26,8 @@ La liste des technologies utilisées pour la réalisation du projet sont :
 - **Unity** - Comme game engine
 - **C#** - Comme language de programmation principal
 - **Gitlab** - Comme application de versioning
+
+
+### Notes
+
+Ce projet à d'abord été versionné à l'aide du **Unity DevOps Version Control**, il à été transféré sur gitlab le 17.09.2025 pour que tous les chefs du projet aient acces. Voila pourquoi le premier commit commence avec tant de fonctionnalités
