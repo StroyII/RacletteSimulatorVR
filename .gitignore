@@ -1,0 +1,21 @@
+# =============== #
+# Unity generated #
+# =============== #
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+UserSettings/
+ 
+# Rider / VS
+.vs/
+*.csproj
+*.sln
+*.user
+*.userprefs
+
+# Autres fichiers
+.DS_Store

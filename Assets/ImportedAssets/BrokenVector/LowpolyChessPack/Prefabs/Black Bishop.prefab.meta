@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: a71fd906a2159e247ab4d632e46947db
+labels:
+- chess
+- board
+- boardgame
+- game
+- chessboard
+- Bishop
+timeCreated: 1462534614
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50405
+  packageName: Low Poly Chess Pack
+  packageVersion: 1.2
+  assetPath: Assets/ImportedAssets/BrokenVector/LowpolyChessPack/Prefabs/Black Bishop.prefab
+  uploadId: 253857

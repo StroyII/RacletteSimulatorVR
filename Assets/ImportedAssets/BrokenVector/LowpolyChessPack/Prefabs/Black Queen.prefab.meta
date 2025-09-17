@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 1f7a3b3d104b8e44cb39f5356ae1d0bb
+labels:
+- chess
+- board
+- boardgame
+- game
+- chessboard
+- Queen
+timeCreated: 1462534606
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50405
+  packageName: Low Poly Chess Pack
+  packageVersion: 1.2
+  assetPath: Assets/ImportedAssets/BrokenVector/LowpolyChessPack/Prefabs/Black Queen.prefab
+  uploadId: 253857
