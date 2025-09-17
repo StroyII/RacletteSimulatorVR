@@ -5,6 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 public class Pepper : MonoBehaviour
 {
     public GameObject sprayZoneObject;
+    public ParticleSystem pepperParticles;
     PepperSprayZone sprayZone = null;
     private XRGrabInteractable grab;
     
@@ -18,6 +19,10 @@ public class Pepper : MonoBehaviour
     public void SprayPepper(ActivateEventArgs args)
     {
         sprayZone.applyPepper();
+
+
+        pepperParticles.Play();
+        
     }
 
 }
