@@ -12,6 +12,7 @@ TagManager:
   - PlateZone
   - Potato
   - Water
+  - Hand
   layers:
   - Default
   - TransparentFX
