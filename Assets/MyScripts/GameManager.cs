@@ -7,13 +7,20 @@ public class GameManager : MonoBehaviour
     public int score = 0;
     public float porcentage = 33f;
     public float timeLeft = 100f;
+    public GameObject player;
+    public GiveOrderZone giveOrderZone;
+    public GameObject[] customerPrefabs;
+    public Transform customerSpawnPoint;
+    public Transform custommerFinalDest;
     public TMPro.TextMeshProUGUI scoreText;
     public TMPro.TextMeshProUGUI timeText;
+    public TMPro.TextMeshProUGUI customerOrderText;
+    private Customer currentCustomer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        SpawnNewCustomer();
     }
 
     // Update is called once per frame
@@ -26,6 +33,19 @@ public class GameManager : MonoBehaviour
             Debug.Log("Temps écoulé ! Fin de la partie.");
             timeLeft = 0;
         }
+    }
+
+    public void SpawnNewCustomer()
+    {
+        if (currentCustomer != null)
+        {
+            Destroy(currentCustomer.gameObject);
+        }
+        int index = Random.Range(0, customerPrefabs.Length);
+        GameObject customerObj = Instantiate(customerPrefabs[index], customerSpawnPoint.position, customerSpawnPoint.rotation);
+        currentCustomer = customerObj.GetComponent<Customer>();
+        currentCustomer.Init(this, customerOrderText, custommerFinalDest);
+        giveOrderZone.SetCustomer(currentCustomer);
     }
 
     public List<IngredientTypes> generateRandomOrder()
