@@ -16,7 +16,7 @@ public class plateZone : MonoBehaviour
     {
         if (other.CompareTag("Plate"))
         {
-
+            
             Plate newPlate = other.GetComponent<Plate>();
             if (currentPlate == null)
             {
