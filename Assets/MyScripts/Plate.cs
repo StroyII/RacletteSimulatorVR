@@ -45,29 +45,21 @@ public class Plate : MonoBehaviour
     {
         if (ingredients.Contains(IngredientTypes.Fromage) && rend != null)
         {
-            Debug.Log("FROMAGE");
-
             racletteFondue.SetActive(true);
         }
 
         if (ingredients.Contains(IngredientTypes.Patate) && rend != null)
         {
-            Debug.Log("PATATE");
-
             potatoPlate.SetActive(true);
         }
 
         if (ingredients.Contains(IngredientTypes.Religieuse) && rend != null)
         {
-            Debug.Log("RELIGIEUSE");
-
             religeusePlate.SetActive(true);
         }
 
         if (ingredients.Contains(IngredientTypes.Poivre) && rend != null)
         {
-            Debug.Log("POIVRE");
-
             poivrePlate.SetActive(true);
             racletteFondue.SetActive(false);
         }

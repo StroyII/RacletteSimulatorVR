@@ -15,7 +15,6 @@ public class GiveOrderZone : MonoBehaviour
     {
         if (givenOrder != null && isOrderOk)
         {
-            Debug.Log("Commande correcte !");
             gameManager.UnregisterItem(givenOrder.gameObject);
             Destroy(givenOrder.gameObject);
             givenOrder = null;
@@ -26,7 +25,6 @@ public class GiveOrderZone : MonoBehaviour
         }
         else if (givenOrder != null && !isOrderOk)
         {
-            Debug.Log("Commande incorrecte !");
             givenOrder = null;
             isOrderOk = false;
         }   

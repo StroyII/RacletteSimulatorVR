@@ -21,8 +21,7 @@ public class raclageZoneFromage : MonoBehaviour
             if (knife.isScraping && plateZone.currentPlate != null && cheese.isReady && (Time.time - lastScrapeTime) >= scrapeCooldown)
             {
                 lastScrapeTime = Time.time;
-
-                Debug.Log("Raclage réussi !!!!!!!!!!!!!!!!!!");
+                
                 if (plateZone.currentPlate.hasIngredient(IngredientTypes.Fromage))
                 {
                     plateZone.currentPlate.AddIngredient(IngredientTypes.Religieuse);

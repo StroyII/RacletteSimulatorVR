@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public float timeLeft = 100f;
     public int maxItems = 15;
     public GameObject player;
+    public Transform endTpPoint;
     public GiveOrderZone giveOrderZone;
     public GameObject[] customerPrefabs;
     public Transform customerSpawnPoint;
@@ -17,6 +18,8 @@ public class GameManager : MonoBehaviour
     public TMPro.TextMeshProUGUI timeText;
     public TMPro.TextMeshProUGUI customerOrderText;
     private Customer currentCustomer;
+
+    private bool isGameOver = false;
 
     private List<GameObject> items = new List<GameObject>();
 
@@ -29,13 +32,18 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isGameOver) return;
+
         timeLeft -= Time.deltaTime;
         timeText.text = "Temps restant : " + Mathf.Ceil(timeLeft).ToString() + "s";
         if (timeLeft <= 0)
         {
-            Debug.Log("Temps écoulé ! Fin de la partie.");
+            isGameOver = true;
             timeLeft = 0;
+            player.transform.position = endTpPoint.position;
         }
+
+
     }
 
     public void SpawnNewCustomer()
@@ -55,7 +63,6 @@ public class GameManager : MonoBehaviour
     {
         List<IngredientTypes> order = new List<IngredientTypes>();
 
-        // Contient toujours le fromage
         order.Add(IngredientTypes.Fromage);
 
         foreach (IngredientTypes ingredient in System.Enum.GetValues(typeof(IngredientTypes)))
