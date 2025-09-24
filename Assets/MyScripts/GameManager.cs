@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public int score = 0;
     public float porcentage = 33f;
     public float timeLeft = 100f;
+    public int maxItems = 15;
     public GameObject player;
     public GiveOrderZone giveOrderZone;
     public GameObject[] customerPrefabs;
@@ -16,6 +17,8 @@ public class GameManager : MonoBehaviour
     public TMPro.TextMeshProUGUI timeText;
     public TMPro.TextMeshProUGUI customerOrderText;
     private Customer currentCustomer;
+
+    private List<GameObject> items = new List<GameObject>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -75,10 +78,29 @@ public class GameManager : MonoBehaviour
         Debug.Log("Score: " + score);
         scoreText.text = "Score : " + score;
     }
-    
+
     public void AddTime(float seconds)
     {
         timeLeft += seconds;
+    }
+
+    public void RegisterItem(GameObject item)
+    {
+        items.Add(item);
+        if (items.Count > maxItems)
+        {
+            GameObject oldestItem = items[0];
+            items.RemoveAt(0);
+            Destroy(oldestItem);
+        }
+    }
+    
+    public void UnregisterItem(GameObject item)
+    {
+        if (items.Contains(item))
+        {
+            items.Remove(item);
+        }
     }
 
 }

@@ -1,41 +1,52 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 public class WaterCooking : MonoBehaviour
 {
     public float cookingTime = 5f;
-    private Potato activePotato = null;
-    private float timer = 0f;
+    private List<Potato> potatoesInWater = new List<Potato>();
+    private Dictionary<Potato, float> potatoTimers = new Dictionary<Potato, float>();
 
     private void OnTriggerEnter(Collider other)
     {
         Potato potato = other.GetComponent<Potato>();
-        if (potato != null && !potato.isCooked)
+        if (potato != null && !potato.isCooked && !potatoesInWater.Contains(potato))
         {
-            activePotato = potato;
-            timer = 0f;
+            potatoesInWater.Add(potato);
+            potatoTimers[potato] = 0f;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
         Potato potato = other.GetComponent<Potato>();
-        if (potato != null && potato == activePotato)
+        if (potato != null && potatoesInWater.Contains(potato))
         {
-            activePotato = null;
-            timer = 0f;
+            potatoesInWater.Remove(potato);
+            potatoTimers.Remove(potato);
         }
     }
 
     void Update()
     {
-        if (activePotato != null && !activePotato.isCooked)
+        // Pour chaque patate dans l'eau, incrémente le timer et cuit si besoin
+        List<Potato> cookedPotatoes = new List<Potato>();
+        foreach (Potato potato in potatoesInWater)
         {
-            timer += Time.deltaTime;
-            if (timer >= cookingTime)
+            if (!potato.isCooked)
             {
-                activePotato.Cook();
-                timer = 0f;
+                potatoTimers[potato] += Time.deltaTime;
+                if (potatoTimers[potato] >= cookingTime)
+                {
+                    potato.Cook();
+                    cookedPotatoes.Add(potato);
+                }
             }
+        }
+        // Retire les patates cuites de la liste
+        foreach (Potato potato in cookedPotatoes)
+        {
+            potatoesInWater.Remove(potato);
+            potatoTimers.Remove(potato);
         }
     }
     

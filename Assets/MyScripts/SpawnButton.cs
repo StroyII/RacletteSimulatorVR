@@ -5,6 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class SpawnButton : MonoBehaviour
 {
+    public GameManager gameManager;
     public Transform visualTarget;
     public Vector3 localAxis;
     public Transform spawnLocation;
@@ -54,9 +55,10 @@ public class SpawnButton : MonoBehaviour
     {
         if (hover.interactorObject is XRPokeInteractor)
         {
-            Instantiate(objectSpawnedPrefab, spawnLocation.position, spawnLocation.rotation);
+            GameObject newObject = Instantiate(objectSpawnedPrefab, spawnLocation.position, spawnLocation.rotation);
             Instantiate(spawnEffect, spawnLocation.position, spawnLocation.rotation);
             spawnEffect.Play();
+            gameManager.RegisterItem(newObject);
             freeze = true;
         }
     }
