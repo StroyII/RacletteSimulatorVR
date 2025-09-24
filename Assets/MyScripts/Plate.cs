@@ -27,12 +27,17 @@ public class Plate : MonoBehaviour
         religeusePlate.SetActive(false);
         poivrePlate.SetActive(false);
     }
-    public void AddIngredient(IngredientTypes ingredient)
+    public bool AddIngredient(IngredientTypes ingredient)
     {
         if (!ingredients.Contains(ingredient))
         {
             ingredients.Add(ingredient);
             updateModel();
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 

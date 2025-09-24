@@ -4,28 +4,25 @@ using UnityEngine;
 public class GiveOrderZone : MonoBehaviour
 {
 
-    public Customer customer;
     public GameManager gameManager;
 
+    private Customer customer;
     private Plate givenOrder;
-
-
     private bool isOrderOk = false;
-    void Start()
-    {
 
-    }
 
     void Update()
     {
         if (givenOrder != null && isOrderOk)
         {
             Debug.Log("Commande correcte !");
+            gameManager.UnregisterItem(givenOrder.gameObject);
             Destroy(givenOrder.gameObject);
             givenOrder = null;
             isOrderOk = false;
             gameManager.AddScore(1);
             gameManager.AddTime(10f);
+            gameManager.SpawnNewCustomer();
         }
         else if (givenOrder != null && !isOrderOk)
         {
@@ -33,6 +30,11 @@ public class GiveOrderZone : MonoBehaviour
             givenOrder = null;
             isOrderOk = false;
         }   
+    }
+
+    public void SetCustomer(Customer cust)
+    {
+        customer = cust;
     }
 
     // Update is called once per frame

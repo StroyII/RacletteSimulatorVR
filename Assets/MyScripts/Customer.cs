@@ -5,26 +5,35 @@ using System.Linq;
 
 public class Customer : MonoBehaviour
 {
-    public TMPro.TextMeshProUGUI commandeText;
-    public GameManager gameManager;
+    public float moveSpeed = 2f;
+    private TMPro.TextMeshProUGUI commandeText;
+    private GameManager gameManager;
+    private Transform finalDest;
     private List<IngredientTypes> order = new List<IngredientTypes>();
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        generateOrder();
-    }
-
-    // Update is called once per frame
     void Update()
     {
+        if (finalDest != null) {       
+            if (Vector3.Distance(transform.position, finalDest.position) > 0.01f)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, finalDest.position, moveSpeed * Time.deltaTime);
+            }
+        }
+    }
 
+    public void Init(GameManager gm, TMPro.TextMeshProUGUI text, Transform dest)
+    {
+        gameManager = gm;
+        commandeText = text;
+        finalDest = dest;
+        generateOrder();
     }
 
     private void generateOrder()
     {
         order = gameManager.generateRandomOrder();
         commandeText.text = "Commande : " + string.Join(", ", order);
+        Debug.Log("Nouvelle commande : " + string.Join(", ", order));
     }
 
     public bool compareOrder(Plate givenOrder)
