@@ -17,5 +17,7 @@ UserSettings/
 *.user
 *.userprefs
 
+
 # Autres fichiers
 .DS_Store
+.plastic/

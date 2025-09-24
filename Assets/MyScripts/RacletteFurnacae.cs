@@ -7,8 +7,18 @@ public class RacletteFurnacae : MonoBehaviour
     public float cookTime = 5f;
     public Material cookedMat;
 
+    public int maxUses = 5;
+
     private CheeseWheel currentCheese;
 
+    void Update()
+    {
+        if (currentCheese != null && currentCheese.currentUse >= maxUses)
+        {
+            Destroy(currentCheese.gameObject);
+            currentCheese = null;
+        }    
+    }
 
     void OnTriggerEnter(Collider other)
     {

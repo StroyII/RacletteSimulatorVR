@@ -6,9 +6,13 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 public class CheeseWheel : MonoBehaviour
 {
     public bool isReady = false;
+
+    public int currentUse = 0;
+
     private Rigidbody rig;
     private XRGrabInteractable grab;
     private Renderer rend;
+
 
     void Start()
     {

@@ -5,16 +5,19 @@ public class raclageZoneFromage : MonoBehaviour
     public float scrapeCooldown = 1f;
     private float lastScrapeTime = -1f;
     public CheeseWheel cheese;
-    public plateZone plateZone;
+    private plateZone plateZone;
 
-    public RacletteFurnacae furnace;
+    void Start()
+    {
+        plateZone = FindFirstObjectByType<plateZone>();
+    }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Knife"))
         {
             RacletteKnife knife = other.GetComponent<RacletteKnife>();
-            
+
             if (knife.isScraping && plateZone.currentPlate != null && cheese.isReady && (Time.time - lastScrapeTime) >= scrapeCooldown)
             {
                 lastScrapeTime = Time.time;
@@ -27,6 +30,7 @@ public class raclageZoneFromage : MonoBehaviour
                 else
                 {
                     plateZone.currentPlate.AddIngredient(IngredientTypes.Fromage);
+                    cheese.currentUse++;
                 }
             }
         }
