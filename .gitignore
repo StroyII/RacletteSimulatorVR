@@ -21,3 +21,4 @@ UserSettings/
 # Autres fichiers
 .DS_Store
 .plastic/
+.vscode/
