@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c9ab0542229b835499df2b00b50f57bb
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 204537
+  packageName: Low Poly Cabins Environment Pack
+  packageVersion: 1.0
+  assetPath: Assets/LowPolyCabinsEnviroment/ColliderHulls/WoodenBarrel_14Hull.mesh
+  uploadId: 464210

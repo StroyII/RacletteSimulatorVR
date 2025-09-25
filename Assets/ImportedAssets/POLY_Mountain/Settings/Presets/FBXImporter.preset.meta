@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 84fc8c2a1dea4ac43af06e3720a09251
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2655988077585873504
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 200790
+  packageName: POLY - Mountain
+  packageVersion: 1.0
+  assetPath: Assets/POLY_Mountain/Settings/Presets/FBXImporter.preset
+  uploadId: 447137
