@@ -35,12 +35,12 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public Customer SpawnNewCustomer(Transform customerSpawnPoint, Transform custommerFinalDest)
+    public Customer SpawnNewCustomer(Transform customerSpawnPoint, List<Transform> waypoints)
     {
         int index = Random.Range(0, customerPrefabs.Length);
         GameObject customerObj = Instantiate(customerPrefabs[index], customerSpawnPoint.position, customerSpawnPoint.rotation);
         Customer newCustomer = customerObj.GetComponent<Customer>();
-        newCustomer.Init(this, custommerFinalDest);
+        newCustomer.Init(this, waypoints);
         return newCustomer;
     }
 

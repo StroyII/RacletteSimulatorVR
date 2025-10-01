@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ public class GiveOrderZone : MonoBehaviour
     public TMPro.TextMeshProUGUI customerOrderText;
     public float timeWait = 0f;
     public Transform customerSpawnPoint;
-    public Transform customerFinalDest;
+    public List<Transform> CustomerWaypoints = new List<Transform>();
 
     private Customer customer;
     private Plate givenOrder;
@@ -23,7 +24,7 @@ public class GiveOrderZone : MonoBehaviour
     IEnumerator WaitAndCreateFirstCustomer()
     {
         yield return new WaitForSeconds(timeWait);
-        setNewCustomer(gameManager.SpawnNewCustomer(customerSpawnPoint, customerFinalDest));
+        setNewCustomer(gameManager.SpawnNewCustomer(customerSpawnPoint, CustomerWaypoints));
     }
 
     private void setNewCustomer(Customer cust)
@@ -43,7 +44,7 @@ public class GiveOrderZone : MonoBehaviour
             isOrderOk = false;
             gameManager.AddScore(1);
             gameManager.AddTime(10f);
-            setNewCustomer(gameManager.SpawnNewCustomer(customerSpawnPoint, customerFinalDest));
+            setNewCustomer(gameManager.SpawnNewCustomer(customerSpawnPoint, CustomerWaypoints));
         }
         else if (givenOrder != null && !isOrderOk)
         {

@@ -7,15 +7,33 @@ public class Customer : MonoBehaviour
 {
     public float moveSpeed = 2f;
     private GameManager gameManager;
-    private Transform finalDest;
     private List<IngredientTypes> order = new List<IngredientTypes>();
+
+    private List<Transform> waypoints = new List<Transform>();
+    private int currentWaypointIndex = 0;
+
+    public void Init(GameManager gm, List<Transform> points)
+    {
+        gameManager = gm;
+        waypoints = points;
+        order = gameManager.generateRandomOrder();
+    }
+
 
     void Update()
     {
-        if (finalDest != null) {       
-            if (Vector3.Distance(transform.position, finalDest.position) > 0.01f)
+        if (waypoints.Count > 0 && waypoints != null && currentWaypointIndex < waypoints.Count)
+        {
+            Transform target = waypoints[currentWaypointIndex];
+            if(Vector3.Distance(transform.position, target.position) > 0.1f)
             {
-                transform.position = Vector3.MoveTowards(transform.position, finalDest.position, moveSpeed * Time.deltaTime);
+                Vector3 direction = (target.position - transform.position).normalized;
+                transform.position += direction * moveSpeed * Time.deltaTime;
+                transform.LookAt(target);
+            }
+            else
+            {
+                currentWaypointIndex++;
             }
         }
     }
@@ -25,12 +43,6 @@ public class Customer : MonoBehaviour
         return order;
     }
 
-    public void Init(GameManager gm, Transform dest)
-    {
-        gameManager = gm;
-        finalDest = dest;
-        order = gameManager.generateRandomOrder();
-    }
 
     public bool compareOrder(Plate givenOrder)
     {
