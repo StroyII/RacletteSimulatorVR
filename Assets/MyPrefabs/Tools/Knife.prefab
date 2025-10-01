@@ -357,7 +357,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4063823360613837880}
-  - component: {fileID: 3680620101345871628}
   - component: {fileID: 2980734761238145222}
   m_Layer: 0
   m_Name: Right Hand Model
@@ -375,7 +374,7 @@ Transform:
   m_GameObject: {fileID: 1352136693900519900}
   serializedVersion: 2
   m_LocalRotation: {x: 0.27145708, y: 0.3858345, z: -0.58278644, w: 0.66166675}
-  m_LocalPosition: {x: -0.0247, y: 0.0439, z: 0.0026}
+  m_LocalPosition: {x: -0.0235, y: 0.0181, z: 0.0201}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -383,43 +382,6 @@ Transform:
   - {fileID: 3724997874009179692}
   m_Father: {fileID: 7101256362673664678}
   m_LocalEulerAnglesHint: {x: 10.752, y: 126.668, z: -178.968}
---- !u!114 &3680620101345871628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1352136693900519900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 716e32ab2975ba64992695271bd01ba3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pinchAnimationAction:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Pinch Animation
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 9f7f7242-a952-48aa-ae61-61d5a4a2ac51
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  gripAnimationAction:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Grip Animation
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 0794c5d1-61e8-4d64-aea0-09815e460d61
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: -1758520528963094988, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  anim: {fileID: 0}
 --- !u!114 &2980734761238145222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1087,8 +1049,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1914014896626035573}
-  - component: {fileID: 6797350077398960191}
-  - component: {fileID: 5525762603101770220}
   - component: {fileID: 8748484086691062734}
   m_Layer: 0
   m_Name: Left Hand Model
@@ -1106,7 +1066,7 @@ Transform:
   m_GameObject: {fileID: 4929278970651836090}
   serializedVersion: 2
   m_LocalRotation: {x: 0.27145708, y: -0.3858345, z: 0.58278644, w: 0.66166675}
-  m_LocalPosition: {x: 0.0182, y: 0.0454, z: 0.0021}
+  m_LocalPosition: {x: 0.0235, y: 0.0181, z: 0.0201}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1114,65 +1074,6 @@ Transform:
   - {fileID: 1668490895956818554}
   m_Father: {fileID: 7101256362673664678}
   m_LocalEulerAnglesHint: {x: 44.84, y: -41.135, z: 43.871}
---- !u!95 &6797350077398960191
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4929278970651836090}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: ca20b3907ff1c794cb89c1ad2cce8282, type: 3}
-  m_Controller: {fileID: 9100000, guid: 4b5efa0c69d901449a38989140500c0d, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5525762603101770220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4929278970651836090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 716e32ab2975ba64992695271bd01ba3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pinchAnimationAction:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Pinch Animation
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 11d2e941-94db-421c-bcd4-a40d00553e71
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: -4289430672226363583, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  gripAnimationAction:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Grip Animation
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 79a1038f-0025-458b-9b32-a2c0216a0696
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 6558622148059887818, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  anim: {fileID: 6797350077398960191}
 --- !u!114 &8748484086691062734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1187,7 +1088,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handType: 0
   root: {fileID: 1914014896626035573}
-  animator: {fileID: 6797350077398960191}
+  animator: {fileID: 0}
   fingerBones:
   - {fileID: 3423068239904596974}
   - {fileID: 3049841675087724655}
@@ -2142,7 +2043,7 @@ Transform:
   m_GameObject: {fileID: 6929877043245535758}
   serializedVersion: 2
   m_LocalRotation: {x: -0.71029043, y: 0.7036275, z: 0.014134379, w: -0.014001791}
-  m_LocalPosition: {x: 0.0296, y: -0.0014, z: -0.022}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
