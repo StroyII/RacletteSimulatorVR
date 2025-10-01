@@ -6,7 +6,6 @@ using System.Linq;
 public class Customer : MonoBehaviour
 {
     public float moveSpeed = 2f;
-    private TMPro.TextMeshProUGUI commandeText;
     private GameManager gameManager;
     private Transform finalDest;
     private List<IngredientTypes> order = new List<IngredientTypes>();
@@ -21,19 +20,16 @@ public class Customer : MonoBehaviour
         }
     }
 
-    public void Init(GameManager gm, TMPro.TextMeshProUGUI text, Transform dest)
+    public List<IngredientTypes> getOrder()
     {
-        gameManager = gm;
-        commandeText = text;
-        finalDest = dest;
-        generateOrder();
+        return order;
     }
 
-    private void generateOrder()
+    public void Init(GameManager gm, Transform dest)
     {
+        gameManager = gm;
+        finalDest = dest;
         order = gameManager.generateRandomOrder();
-        commandeText.text = "Commande : " + string.Join(", ", order);
-        Debug.Log("Nouvelle commande : " + string.Join(", ", order));
     }
 
     public bool compareOrder(Plate givenOrder)

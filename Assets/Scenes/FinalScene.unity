@@ -84068,6 +84068,18 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1851789724}
+    - target: {fileID: 4411691296023654876, guid: 38eee389444b585428dacb6028ff512a, type: 3}
+      propertyPath: customerFinalDest
+      value: 
+      objectReference: {fileID: 850972028}
+    - target: {fileID: 4411691296023654876, guid: 38eee389444b585428dacb6028ff512a, type: 3}
+      propertyPath: customerOrderText
+      value: 
+      objectReference: {fileID: 1664982797}
+    - target: {fileID: 4411691296023654876, guid: 38eee389444b585428dacb6028ff512a, type: 3}
+      propertyPath: customerSpawnPoint
+      value: 
+      objectReference: {fileID: 1109188215}
     - target: {fileID: 5699964456198944816, guid: 38eee389444b585428dacb6028ff512a, type: 3}
       propertyPath: m_Name
       value: GiveOrderZone
