@@ -24,15 +24,30 @@ public class Customer : MonoBehaviour
     {
         if (waypoints.Count > 0 && waypoints != null && currentWaypointIndex < waypoints.Count)
         {
-            Transform target = waypoints[currentWaypointIndex];
-            if(Vector3.Distance(transform.position, target.position) > 0.1f)
+            Transform point = waypoints[currentWaypointIndex];
+            Vector3 offset = new Vector3(0f,0f,0f);
+            Vector3 target = point.position + offset;
+            float distance = Vector3.Distance(transform.position, target);
+            if (distance > 0.1f)
             {
-                Vector3 direction = (target.position - transform.position).normalized;
-                transform.position += direction * moveSpeed * Time.deltaTime;
-                transform.LookAt(target);
+                Vector3 direction = (target - transform.position).normalized;
+                float step = moveSpeed * Time.deltaTime;
+                // Si on va dépasser le point, on se place exactement dessus
+                if (step >= distance)
+                {
+                    transform.position = target;
+                    currentWaypointIndex++;
+                }
+                else
+                {
+                    transform.position += direction * step;
+                    transform.LookAt(target);
+                }
             }
             else
             {
+                Debug.Log("Waypoint reached : " + this.transform.position);
+                transform.position = target;
                 currentWaypointIndex++;
             }
         }
