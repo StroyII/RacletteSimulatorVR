@@ -65,8 +65,10 @@ public class GrabHandPose : MonoBehaviour
 
     public void SetHandDataValue(HandData h1, HandData h2)
     {
-        startingHandPosition = h1.root.localPosition;
-        finalHandPosition = h2.root.localPosition;
+        // startingHandPosition = h1.root.localPosition;
+        startingHandPosition = new Vector3(h1.root.localPosition.x / h1.root.localScale.x, h1.root.localPosition.y / h1.root.localScale.y, h1.root.localPosition.z / h1.root.localScale.z);
+        //finalHandPosition = h2.root.localPosition;
+        finalHandPosition = new Vector3(h2.root.localPosition.x / h2.root.localScale.x, h2.root.localPosition.y / h2.root.localScale.y, h2.root.localPosition.z / h2.root.localScale.z);
 
         startingHandRotation = h1.root.localRotation;
         finalHandRotation = h2.root.localRotation;

@@ -10,24 +10,13 @@ public class GameManager : MonoBehaviour
     public int maxItems = 15;
     public GameObject player;
     public Transform endTpPoint;
-    public GiveOrderZone giveOrderZone;
     public GameObject[] customerPrefabs;
-    public Transform customerSpawnPoint;
-    public Transform custommerFinalDest;
     public TMPro.TextMeshProUGUI scoreText;
     public TMPro.TextMeshProUGUI timeText;
-    public TMPro.TextMeshProUGUI customerOrderText;
-    private Customer currentCustomer;
 
     private bool isGameOver = false;
 
     private List<GameObject> items = new List<GameObject>();
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        SpawnNewCustomer();
-    }
 
     // Update is called once per frame
     void Update()
@@ -46,17 +35,13 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void SpawnNewCustomer()
+    public Customer SpawnNewCustomer(Transform customerSpawnPoint, List<Transform> waypoints)
     {
-        if (currentCustomer != null)
-        {
-            Destroy(currentCustomer.gameObject);
-        }
         int index = Random.Range(0, customerPrefabs.Length);
         GameObject customerObj = Instantiate(customerPrefabs[index], customerSpawnPoint.position, customerSpawnPoint.rotation);
-        currentCustomer = customerObj.GetComponent<Customer>();
-        currentCustomer.Init(this, customerOrderText, custommerFinalDest);
-        giveOrderZone.SetCustomer(currentCustomer);
+        Customer newCustomer = customerObj.GetComponent<Customer>();
+        newCustomer.Init(this, waypoints);
+        return newCustomer;
     }
 
     public List<IngredientTypes> generateRandomOrder()

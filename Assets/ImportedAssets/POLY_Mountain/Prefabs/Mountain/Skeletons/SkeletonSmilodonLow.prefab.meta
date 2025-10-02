@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b59cd9f54303a5a42a9e3bd0afd75f66
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 200790
+  packageName: POLY - Mountain
+  packageVersion: 1.0
+  assetPath: Assets/POLY_Mountain/Prefabs/Mountain/Skeletons/SkeletonSmilodonLow.prefab
+  uploadId: 447137

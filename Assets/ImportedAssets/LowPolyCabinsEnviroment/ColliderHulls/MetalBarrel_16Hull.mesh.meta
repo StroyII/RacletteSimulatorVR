@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f6661090ffb334d4c966ecd64fde565c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 204537
+  packageName: Low Poly Cabins Environment Pack
+  packageVersion: 1.0
+  assetPath: Assets/LowPolyCabinsEnviroment/ColliderHulls/MetalBarrel_16Hull.mesh
+  uploadId: 464210
