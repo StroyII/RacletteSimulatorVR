@@ -65,16 +65,6 @@ public class Plate : MonoBehaviour
         }
     }
 
-    public void ClipToZone(Transform snapPoint)
-    {
-        transform.position = snapPoint.position;
-        transform.rotation = snapPoint.rotation;
-
-
-
-
-    }
-
     public void OnGrabbed(SelectEnterEventArgs args)
     {
         rig.isKinematic = false;

@@ -1,15 +1,25 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class RacletteFurnacae : MonoBehaviour
 {
-    public Transform cheeseSnapPoint;
     public float cookTime = 5f;
     public Material cookedMat;
 
     public int maxUses = 5;
 
     private CheeseWheel currentCheese;
+    private XRSocketInteractor socket;
+
+    void Start()
+    {
+        socket = GetComponent<XRSocketInteractor>();
+
+        socket.selectEntered.AddListener(OnCheesePlaced);
+        socket.selectExited.AddListener(OnCheeseRemoved);
+    }
 
     void Update()
     {
@@ -20,27 +30,34 @@ public class RacletteFurnacae : MonoBehaviour
         }    
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnCheesePlaced(SelectEnterEventArgs args)
     {
-        if (other.CompareTag("Cheese"))
+        CheeseWheel newCheese = args.interactableObject.transform.GetComponent<CheeseWheel>();
+
+        if (newCheese != null && currentCheese == null)
         {
+            currentCheese = newCheese;
+            StartCoroutine(CookCheese(currentCheese));
+        }
+    }
 
-            CheeseWheel newCheese = other.GetComponent<CheeseWheel>();
-            if (currentCheese == null)
-            {
-
-                currentCheese = newCheese;
-                currentCheese.ClipToFurnace(cheeseSnapPoint);
-                StartCoroutine(CookCheese(currentCheese));
-            }
+    private void OnCheeseRemoved(SelectExitEventArgs args)
+    {
+        if (currentCheese != null && args.interactableObject.transform == currentCheese.transform)
+        {
+            StopAllCoroutines(); // stop la cuisson si on retire le fromage avant la fin
+            currentCheese = null;
         }
     }
 
     IEnumerator CookCheese(CheeseWheel cheese)
     {
         yield return new WaitForSeconds(cookTime);
-        cheese.isReady = true;
-        cheese.SetMaterial(cookedMat);
+
+        if(cheese != null && currentCheese != null && cheese == currentCheese){    
+            cheese.isReady = true;
+            cheese.SetMaterial(cookedMat);
+        }
     }
 
     

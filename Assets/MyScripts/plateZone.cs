@@ -1,42 +1,39 @@
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit.Interactables;
-using UnityEngine.XR.Interaction.Toolkit.Locomotion.Movement;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
+using UnityEngine.XR.Interaction.Toolkit;
+
 
 public class plateZone : MonoBehaviour
 {
     public Plate currentPlate;
     private Renderer rend;
 
+    private XRSocketInteractor socket;
+
     void Start()
     {
         rend = GetComponent<Renderer>();
-    }
+        socket = GetComponent<XRSocketInteractor>();
 
-    void OnTriggerEnter(Collider other)
+        socket.selectEntered.AddListener(OnPlatePlaced);
+        socket.selectExited.AddListener(OnPlateRemoved);
+    }   
+
+    
+    private void OnPlatePlaced(SelectEnterEventArgs args)
     {
-        if (other.CompareTag("Plate"))
+        Plate newPlate = args.interactableObject.transform.GetComponent<Plate>();
+        if (newPlate != null)
         {
-            
-            Plate newPlate = other.GetComponent<Plate>();
-            if (currentPlate == null)
-            {
-                XRGrabInteractable plateGrab = newPlate.GetComponent<XRGrabInteractable>();
-                if (!plateGrab.isSelected)
-                {    
-                    currentPlate = newPlate;
-                    currentPlate.ClipToZone(transform);
-                    rend.enabled = false;
-                }
-            }
+            currentPlate = newPlate;
+            rend.enabled = false;
         }
     }
 
-    void OnTriggerExit(Collider other)
+    private void OnPlateRemoved(SelectExitEventArgs args)
     {
-        if (other.CompareTag("Plate"))
-        {
-            currentPlate = null;
-            rend.enabled = true;         
-        }
+        currentPlate = null;
+        rend.enabled = true;
     }
+
 }
