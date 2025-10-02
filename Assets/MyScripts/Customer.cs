@@ -6,35 +6,58 @@ using System.Linq;
 public class Customer : MonoBehaviour
 {
     public float moveSpeed = 2f;
-    private TMPro.TextMeshProUGUI commandeText;
     private GameManager gameManager;
-    private Transform finalDest;
     private List<IngredientTypes> order = new List<IngredientTypes>();
+
+    private List<Transform> waypoints = new List<Transform>();
+    private int currentWaypointIndex = 0;
+
+    public void Init(GameManager gm, List<Transform> points)
+    {
+        gameManager = gm;
+        waypoints = points;
+        order = gameManager.generateRandomOrder();
+    }
+
 
     void Update()
     {
-        if (finalDest != null) {       
-            if (Vector3.Distance(transform.position, finalDest.position) > 0.01f)
+        if (waypoints.Count > 0 && waypoints != null && currentWaypointIndex < waypoints.Count)
+        {
+            Transform point = waypoints[currentWaypointIndex];
+            Vector3 offset = new Vector3(0f,0f,0f);
+            Vector3 target = point.position + offset;
+            float distance = Vector3.Distance(transform.position, target);
+            if (distance > 0.1f)
             {
-                transform.position = Vector3.MoveTowards(transform.position, finalDest.position, moveSpeed * Time.deltaTime);
+                Vector3 direction = (target - transform.position).normalized;
+                float step = moveSpeed * Time.deltaTime;
+                // Si on va dépasser le point, on se place exactement dessus
+                if (step >= distance)
+                {
+                    transform.position = target;
+                    currentWaypointIndex++;
+                }
+                else
+                {
+                    transform.position += direction * step;
+                    transform.LookAt(target);
+                }
+            }
+            else
+            {
+                Debug.Log("Waypoint reached : " + this.transform.position);
+                transform.position = target;
+                currentWaypointIndex++;
             }
         }
     }
 
-    public void Init(GameManager gm, TMPro.TextMeshProUGUI text, Transform dest)
+    public List<IngredientTypes> getOrder()
     {
-        gameManager = gm;
-        commandeText = text;
-        finalDest = dest;
-        generateOrder();
+        return order;
     }
 
-    private void generateOrder()
-    {
-        order = gameManager.generateRandomOrder();
-        commandeText.text = "Commande : " + string.Join(", ", order);
-        Debug.Log("Nouvelle commande : " + string.Join(", ", order));
-    }
 
     public bool compareOrder(Plate givenOrder)
     {
