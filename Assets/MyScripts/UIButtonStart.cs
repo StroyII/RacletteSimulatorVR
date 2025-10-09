@@ -20,7 +20,7 @@ public class UIButtonStart : MonoBehaviour
 
     void Update()
     {
-        if (PlayerData.pseudo == "Player")
+        if (PlayerData.pseudo == "Player1")
         {
            button.interactable = false;
         } else

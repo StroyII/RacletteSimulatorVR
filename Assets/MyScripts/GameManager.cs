@@ -13,7 +13,9 @@ public class GameManager : MonoBehaviour
     public GameObject[] customerPrefabs;
     public TMPro.TextMeshProUGUI scoreText;
     public TMPro.TextMeshProUGUI timeText;
-
+    public GameOverManager gameOverManager;
+    public GameObject leftRay;
+    public GameObject rightRay;
     private bool isGameOver = false;
 
     private List<GameObject> items = new List<GameObject>();
@@ -27,12 +29,22 @@ public class GameManager : MonoBehaviour
         timeText.text = "Temps restant : " + Mathf.Ceil(timeLeft).ToString() + "s";
         if (timeLeft <= 0)
         {
-            isGameOver = true;
-            timeLeft = 0;
-            player.transform.position = endTpPoint.position;
+            finishGame();
         }
+    }
+    
+    public void finishGame()
+    {
+        if (isGameOver) return;
 
+        isGameOver = true;
+        player.transform.position = endTpPoint.position;
+        player.transform.rotation = endTpPoint.rotation;
+        player.GetComponent<CharacterController>().enabled = false;
+        leftRay.SetActive(true);
+        rightRay.SetActive(true);
 
+        gameOverManager.ShowGameOverMessage(score);
     }
 
     public Customer SpawnNewCustomer(Transform customerSpawnPoint, List<Transform> waypoints)
