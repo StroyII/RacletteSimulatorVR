@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 6f62389967de41a41a5d2067e903be63
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 198320
+  packageName: VFSKeyboard - VR, Fast and Simple
+  packageVersion: 1.0
+  assetPath: Assets/UI_component/VRKeyboard/VRKeyboard_Prefabs/Virtual Keyboard Controller.prefab
+  uploadId: 441041
