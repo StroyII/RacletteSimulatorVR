@@ -11,6 +11,24 @@ public class UIButtonStart : MonoBehaviour
 
     public GameObject player;
 
+    private Button button;
+
+    void Start()
+    {
+        button = GetComponent<Button>();
+    }
+
+    void Update()
+    {
+        if (PlayerData.pseudo == "Player")
+        {
+           button.interactable = false;
+        } else
+        {
+           button.interactable = true;
+        }
+    }
+
     public void loadScene()
     {
         player.transform.position = tpPoint.position;

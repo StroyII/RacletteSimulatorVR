@@ -54,9 +54,18 @@
     },
     "com.unity.ext.nunit": {
       "version": "2.0.5",
-      "depth": 2,
+      "depth": 1,
       "source": "builtin",
       "dependencies": {}
+    },
+    "com.unity.ide.visualstudio": {
+      "version": "2.0.25",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.test-framework": "1.1.31"
+      },
+      "url": "https://packages.unity.com"
     },
     "com.unity.inputsystem": {
       "version": "1.14.2",
@@ -176,7 +185,7 @@
     },
     "com.unity.test-framework": {
       "version": "1.5.1",
-      "depth": 1,
+      "depth": 0,
       "source": "builtin",
       "dependencies": {
         "com.unity.ext.nunit": "2.0.3",
@@ -208,7 +217,7 @@
     },
     "com.unity.ugui": {
       "version": "2.0.0",
-      "depth": 1,
+      "depth": 0,
       "source": "builtin",
       "dependencies": {
         "com.unity.modules.ui": "1.0.0",
@@ -273,6 +282,15 @@
         "com.unity.xr.core-utils": "2.2.1",
         "com.unity.modules.subsystems": "1.0.0",
         "com.unity.xr.legacyinputhelpers": "2.1.11"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.xr.oculus": {
+      "version": "4.5.2",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.xr.management": "4.4.0"
       },
       "url": "https://packages.unity.com"
     },

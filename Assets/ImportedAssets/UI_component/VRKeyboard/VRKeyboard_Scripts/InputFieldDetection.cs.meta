@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 57b43b34496862e4bbf6d87e5dc06f12
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 198320
+  packageName: VFSKeyboard - VR, Fast and Simple
+  packageVersion: 1.0
+  assetPath: Assets/UI_component/VRKeyboard/VRKeyboard_Scripts/InputFieldDetection.cs
+  uploadId: 441041
