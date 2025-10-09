@@ -32,7 +32,6 @@ public class Customer : MonoBehaviour
             {
                 Vector3 direction = (target - transform.position).normalized;
                 float step = moveSpeed * Time.deltaTime;
-                // Si on va dépasser le point, on se place exactement dessus
                 if (step >= distance)
                 {
                     transform.position = target;
@@ -46,7 +45,6 @@ public class Customer : MonoBehaviour
             }
             else
             {
-                Debug.Log("Waypoint reached : " + this.transform.position);
                 transform.position = target;
                 currentWaypointIndex++;
             }

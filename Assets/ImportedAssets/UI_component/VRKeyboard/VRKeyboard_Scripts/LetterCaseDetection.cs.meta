@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: cdf5d3ba52e341542918c729dc48f8f8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 198320
+  packageName: VFSKeyboard - VR, Fast and Simple
+  packageVersion: 1.0
+  assetPath: Assets/UI_component/VRKeyboard/VRKeyboard_Scripts/LetterCaseDetection.cs
+  uploadId: 441041
