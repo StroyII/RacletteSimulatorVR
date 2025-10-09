@@ -5,7 +5,7 @@ public enum IngredientTypes { Fromage, Religieuse, Patate, Poivre};
 public class GameManager : MonoBehaviour
 {
     public int score = 0;
-    public float porcentage = 33f;
+    public float porcentage = 50f;
     public float timeLeft = 100f;
     public int maxItems = 15;
     public GameObject player;
