@@ -67539,6 +67539,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2556903125097061747, guid: 5b22c249c33e6aa4f9075f8c857edf04, type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 824939394}
     - target: {fileID: 2626328423265206913, guid: 5b22c249c33e6aa4f9075f8c857edf04, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -67615,10 +67619,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4810106778154040793, guid: 5b22c249c33e6aa4f9075f8c857edf04, type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 824939394}
     - target: {fileID: 5025951168291615838, guid: 5b22c249c33e6aa4f9075f8c857edf04, type: 3}
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 5190308228941982894, guid: 5b22c249c33e6aa4f9075f8c857edf04, type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 824939394}
     - target: {fileID: 5247776273131186572, guid: 5b22c249c33e6aa4f9075f8c857edf04, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -67743,6 +67755,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 8337921475835179818, guid: 5b22c249c33e6aa4f9075f8c857edf04, type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 824939394}
     - target: {fileID: 8611297179384044074, guid: 5b22c249c33e6aa4f9075f8c857edf04, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -67771,7 +67787,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2260945623488828503, guid: 5b22c249c33e6aa4f9075f8c857edf04, type: 3}
-      insertIndex: 0
+      insertIndex: 1
       addedObject: {fileID: 379534408}
     - targetCorrespondingSourceObject: {fileID: 769740577358129753, guid: 5b22c249c33e6aa4f9075f8c857edf04, type: 3}
       insertIndex: 0
