@@ -27,6 +27,4 @@ public class RacletteKnife : MonoBehaviour
             isScraping = false;
         }
     }
-
-
 }

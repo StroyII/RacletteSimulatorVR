@@ -5,35 +5,22 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class CheeseWheel : MonoBehaviour
 {
+
+    // If the cheese can be used
     public bool isReady = false;
-
+    // How many time the cheese has been used
     public int currentUse = 0;
-
-    private Rigidbody rig;
-    private XRGrabInteractable grab;
+    
     private Renderer rend;
 
-
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        grab = GetComponent<XRGrabInteractable>();
-        rig = GetComponent<Rigidbody>();
+        // Set value of components
         rend = GetComponent<Renderer>();
     }
 
-    public void ClipToFurnace(Transform snapPoint)
-    {
-        grab.enabled = false;
-
-        transform.position = snapPoint.position;
-        transform.rotation = snapPoint.rotation;
-        transform.SetParent(snapPoint);
-
-        rig.isKinematic = true;
-        rig.useGravity = false;
-
-    }
-
+    // Set new material to the cheese
     public void SetMaterial(Material mat)
     {
         rend.material = mat;

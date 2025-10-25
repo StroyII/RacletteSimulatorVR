@@ -7,22 +7,26 @@ public class RacletteFurnacae : MonoBehaviour
 {
     public float cookTime = 5f;
     public Material cookedMat;
-
     public int maxUses = 5;
 
     private CheeseWheel currentCheese;
     private XRSocketInteractor socket;
 
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // Set component values
         socket = GetComponent<XRSocketInteractor>();
 
+        // Add listeners for when a cheese is placed or removed
         socket.selectEntered.AddListener(OnCheesePlaced);
         socket.selectExited.AddListener(OnCheeseRemoved);
     }
 
+    // Update is called once per frame
     void Update()
     {
+        // Check if the cheese has reached max uses
         if (currentCheese != null && currentCheese.currentUse >= maxUses)
         {
             Destroy(currentCheese.gameObject);
@@ -30,6 +34,7 @@ public class RacletteFurnacae : MonoBehaviour
         }    
     }
 
+    // When cheese is placed in the furnace
     private void OnCheesePlaced(SelectEnterEventArgs args)
     {
         CheeseWheel newCheese = args.interactableObject.transform.GetComponent<CheeseWheel>();
@@ -41,6 +46,7 @@ public class RacletteFurnacae : MonoBehaviour
         }
     }
 
+    // When cheese is removed from the furnace
     private void OnCheeseRemoved(SelectExitEventArgs args)
     {
         if (currentCheese != null && args.interactableObject.transform == currentCheese.transform)
@@ -50,6 +56,7 @@ public class RacletteFurnacae : MonoBehaviour
         }
     }
 
+    // Coroutine to cook the cheese over time
     IEnumerator CookCheese(CheeseWheel cheese)
     {
         yield return new WaitForSeconds(cookTime);
@@ -59,6 +66,4 @@ public class RacletteFurnacae : MonoBehaviour
             cheese.SetMaterial(cookedMat);
         }
     }
-
-    
 }

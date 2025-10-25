@@ -19,10 +19,4 @@ public class Potato : MonoBehaviour
             rend.material = cookedMaterial;
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

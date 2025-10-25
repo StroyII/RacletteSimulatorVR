@@ -5,29 +5,33 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class Plate : MonoBehaviour
 {
+    // Different models on the plate depending on ingredients
     public GameObject racletteFondue;
     public GameObject potatoPlate;
     public GameObject religeusePlate;
     public GameObject poivrePlate;
 
-    private Renderer rend;
     private List<IngredientTypes> ingredients = new List<IngredientTypes>();
+    private Renderer rend;
     private Rigidbody rig;
     private XRGrabInteractable grab;
 
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // Set value of components
         rend = GetComponent<Renderer>();
         rig = GetComponent<Rigidbody>();
         grab = GetComponent<XRGrabInteractable>();
-        grab.selectEntered.AddListener(OnGrabbed);
 
+        // Disable all models at start
         racletteFondue.SetActive(false);
         potatoPlate.SetActive(false);
         religeusePlate.SetActive(false);
         poivrePlate.SetActive(false);
     }
     
+    // Function to add ingredient to the plate
     public bool AddIngredient(IngredientTypes ingredient)
     {
         if (!ingredients.Contains(ingredient))
@@ -42,6 +46,7 @@ public class Plate : MonoBehaviour
         }
     }
 
+    // Function to update the plate model based on ingredients added
     public void updateModel()
     {
         if (ingredients.Contains(IngredientTypes.Fromage) && rend != null)
@@ -66,16 +71,13 @@ public class Plate : MonoBehaviour
         }
     }
 
-    public void OnGrabbed(SelectEnterEventArgs args)
-    {
-        rig.isKinematic = false;
-    }
-
+    // Get list of ingredients on the plate
     public List<IngredientTypes> getIngredients()
     {
         return ingredients;
     }
     
+    // Check if plate has a specific ingredient
     public bool hasIngredient(IngredientTypes ingredient)
     {
         return ingredients.Contains(ingredient);
