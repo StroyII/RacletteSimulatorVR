@@ -11,4 +11,10 @@ public class GameOverManager : MonoBehaviour
         gameOverPanel.SetActive(true);
         text.text = "Bien joué " + PlayerData.pseudo + " ton score final est de " + finalScore + " !\nQue faire ? ";
     }
+
+    public void onGameOver()
+    {
+        ScoreManager.SaveCurrentPlayerScore();
+        PlayerData.ResetScore();
+    }
 }

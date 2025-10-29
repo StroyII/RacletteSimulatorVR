@@ -44,7 +44,9 @@ public class GameManager : MonoBehaviour
         leftRay.SetActive(true);
         rightRay.SetActive(true);
 
+        PlayerData.score = score;
         gameOverManager.ShowGameOverMessage(score);
+        gameOverManager.onGameOver();
     }
 
     public Customer SpawnNewCustomer(Transform customerSpawnPoint, List<Transform> waypoints)

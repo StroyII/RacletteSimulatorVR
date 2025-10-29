@@ -16,7 +16,6 @@ public class OpenVirtualKeyboard : MonoBehaviour
         // {
         //     canvasRectTransform = mainCanvas.GetComponent<RectTransform>();
         // }
-
         virtualKeyboard = GameObject.Find("Virtual Keyboard").gameObject;
         if (virtualKeyboard == null)
             Debug.LogError("Pls drag the {Virtual Keyboard} prefabs in your scene");
