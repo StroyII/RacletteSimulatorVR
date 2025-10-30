@@ -8,7 +8,6 @@ public class UILeaderboard : MonoBehaviour
 {
     public GameObject entryPrefab;
     public Transform contentParent;
-    public GameObject objectReference;
 
     private int num = 1;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -17,12 +16,6 @@ public class UILeaderboard : MonoBehaviour
         DisplayLeaderboard();
     }
 
-    void Update()
-    {
-        gameObject.SetActive(objectReference.activeSelf);
-    }
-
-    // Update is called once per frame
     private void DisplayLeaderboard()
     {
         List<ScoreEntry> scores = ScoreManager.GetTopNScores(50);

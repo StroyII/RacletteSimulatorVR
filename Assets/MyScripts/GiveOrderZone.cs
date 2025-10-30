@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Security.Cryptography;
 using UnityEngine;
 
 public class GiveOrderZone : MonoBehaviour
 {
+    public AudioClip correctOrderSound;
+    public AudioClip wrongOrderSound;
 
+    private AudioSource audioSource;
     public GameManager gameManager;
     public TMPro.TextMeshProUGUI customerOrderText;
     public float timeWait = 0f;
@@ -19,6 +23,7 @@ public class GiveOrderZone : MonoBehaviour
     void Start()
     {
         StartCoroutine(WaitAndCreateFirstCustomer());
+        audioSource = GetComponent<AudioSource>();
     }
 
     IEnumerator WaitAndCreateFirstCustomer()
@@ -37,6 +42,7 @@ public class GiveOrderZone : MonoBehaviour
     {
         if (givenOrder != null && isOrderOk)
         {
+            audioSource.PlayOneShot(correctOrderSound);
             gameManager.UnregisterItem(givenOrder.gameObject);
             Destroy(givenOrder.gameObject);
             Destroy(customer.gameObject);
@@ -48,6 +54,7 @@ public class GiveOrderZone : MonoBehaviour
         }
         else if (givenOrder != null && !isOrderOk)
         {
+            audioSource.PlayOneShot(wrongOrderSound);
             givenOrder = null;
             isOrderOk = false;
         }   

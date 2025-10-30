@@ -13,7 +13,7 @@ public class CheeseWheel : MonoBehaviour
     
     private Renderer rend;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // Start is called once before the first execution
     void Start()
     {
         // Set value of components

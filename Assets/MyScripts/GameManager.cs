@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit.Locomotion.Movement;
+using UnityEngine.XR.Interaction.Toolkit.Locomotion.Teleportation;
 
 public enum IngredientTypes { Fromage, Religieuse, Patate, Poivre};
 public class GameManager : MonoBehaviour
@@ -40,7 +42,18 @@ public class GameManager : MonoBehaviour
         isGameOver = true;
         player.transform.position = endTpPoint.position;
         player.transform.rotation = endTpPoint.rotation;
-        player.GetComponent<CharacterController>().enabled = false;
+        
+        ContinuousMoveProvider cont = player.GetComponent<ContinuousMoveProvider>();
+        if (cont != null)
+        {
+            cont.enabled = false;
+        }
+        TeleportationProvider tp = player.GetComponent<TeleportationProvider>();
+        if (tp != null)
+        {
+            tp.enabled = false;
+        }
+
         leftRay.SetActive(true);
         rightRay.SetActive(true);
 

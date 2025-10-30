@@ -12,10 +12,11 @@ public class TeleportationActivator : MonoBehaviour
     {
         teleportInteractor.gameObject.SetActive(false);
 
+        // Subscribe to the performed event of the action
         teleportActivatorAction.action.performed += Action_performed;
-
     }
     
+    // When the action is performed, enable the teleport interactor
     private void Action_performed(InputAction.CallbackContext obj)
     {
         teleportInteractor.gameObject.SetActive(true);
@@ -24,6 +25,7 @@ public class TeleportationActivator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Unable the teleport if the action is released
         if(teleportActivatorAction.action.WasReleasedThisFrame())
         {
             teleportInteractor.gameObject.SetActive(false);
