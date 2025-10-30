@@ -5,6 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class SpawnButton : MonoBehaviour
 {
+    public AudioClip spawnSound;
     public GameManager gameManager;
     public Transform visualTarget;
     public Vector3 localAxis;
@@ -14,6 +15,7 @@ public class SpawnButton : MonoBehaviour
     public float resetSpeed = 5f;
     private bool freeze = false;
 
+    private AudioSource audioSource;
     private Vector3 initialLocalPosition;
     private Vector3 offset;
     private Transform pokeAttachTransform;
@@ -22,6 +24,7 @@ public class SpawnButton : MonoBehaviour
     private bool isFollowing = false;
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         initialLocalPosition = visualTarget.localPosition;
 
         interactable = GetComponent<XRBaseInteractable>();
@@ -55,6 +58,7 @@ public class SpawnButton : MonoBehaviour
     {
         if (hover.interactorObject is XRPokeInteractor)
         {
+            audioSource.PlayOneShot(spawnSound);
             GameObject newObject = Instantiate(objectSpawnedPrefab, spawnLocation.position, spawnLocation.rotation);
             Instantiate(spawnEffect, spawnLocation.position, spawnLocation.rotation);
             spawnEffect.Play();

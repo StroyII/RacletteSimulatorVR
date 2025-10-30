@@ -3,11 +3,15 @@ using System.Collections.Generic;
 public class WaterCooking : MonoBehaviour
 {
     public float cookingTime = 5f;
+    public AudioSource audioSourceSplash;
+
+    public AudioSource audioReady;
     private List<Potato> potatoesInWater = new List<Potato>();
     private Dictionary<Potato, float> potatoTimers = new Dictionary<Potato, float>();
 
     private void OnTriggerEnter(Collider other)
     {
+        audioSourceSplash.Play();
         Potato potato = other.GetComponent<Potato>();
         if (potato != null && !potato.isCooked && !potatoesInWater.Contains(potato))
         {
@@ -38,6 +42,7 @@ public class WaterCooking : MonoBehaviour
                 if (potatoTimers[potato] >= cookingTime)
                 {
                     potato.Cook();
+                    audioReady.Play();
                     cookedPotatoes.Add(potato);
                 }
             }

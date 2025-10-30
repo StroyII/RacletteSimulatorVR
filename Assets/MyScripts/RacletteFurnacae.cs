@@ -9,6 +9,9 @@ public class RacletteFurnacae : MonoBehaviour
     public Material cookedMat;
     public int maxUses = 5;
 
+    public AudioSource audioSourceCooking;
+    public AudioSource audioSourceReady;
+
     private CheeseWheel currentCheese;
     private XRSocketInteractor socket;
 
@@ -42,6 +45,7 @@ public class RacletteFurnacae : MonoBehaviour
         if (newCheese != null && currentCheese == null)
         {
             currentCheese = newCheese;
+            audioSourceCooking.Play();
             StartCoroutine(CookCheese(currentCheese));
         }
     }
@@ -52,6 +56,7 @@ public class RacletteFurnacae : MonoBehaviour
         if (currentCheese != null && args.interactableObject.transform == currentCheese.transform)
         {
             StopAllCoroutines(); // stop la cuisson si on retire le fromage avant la fin
+            audioSourceCooking.Stop();
             currentCheese = null;
         }
     }
@@ -61,9 +66,14 @@ public class RacletteFurnacae : MonoBehaviour
     {
         yield return new WaitForSeconds(cookTime);
 
-        if(cheese != null && currentCheese != null && cheese == currentCheese){    
+        if (cheese != null && currentCheese != null && cheese == currentCheese)
+        {
             cheese.isReady = true;
             cheese.SetMaterial(cookedMat);
         }
+
+        audioSourceCooking.Stop();
+        
+        audioSourceReady.Play();
     }
 }

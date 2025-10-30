@@ -4,7 +4,10 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class plateZone : MonoBehaviour
 {
+    public AudioClip clipSound;
     public Plate currentPlate;
+
+    private AudioSource audioSource;
     private Renderer rend;
     private XRSocketInteractor socket;
 
@@ -14,6 +17,7 @@ public class plateZone : MonoBehaviour
         // Set component values
         rend = GetComponent<Renderer>();
         socket = GetComponent<XRSocketInteractor>();
+        audioSource = GetComponent<AudioSource>();
 
         // Add listeners for when a plate is placed or removed
         socket.selectEntered.AddListener(OnPlatePlaced);
@@ -26,6 +30,7 @@ public class plateZone : MonoBehaviour
         Plate newPlate = args.interactableObject.transform.GetComponent<Plate>();
         if (newPlate != null)
         {
+            audioSource.PlayOneShot(clipSound);
             currentPlate = newPlate;
             rend.enabled = false;
         }

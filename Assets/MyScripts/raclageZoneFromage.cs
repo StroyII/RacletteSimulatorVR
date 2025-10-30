@@ -6,6 +6,8 @@ public class raclageZoneFromage : MonoBehaviour
     public float scrapeCooldown = 1f;
     private float lastScrapeTime = -1f;
 
+    public AudioSource soundCheese;
+    public AudioSource soundKnife;
     public CheeseWheel cheese;
     private plateZone plateZone;
 
@@ -27,7 +29,9 @@ public class raclageZoneFromage : MonoBehaviour
             if (knife.isScraping && plateZone.currentPlate != null && cheese.isReady && (Time.time - lastScrapeTime) >= scrapeCooldown)
             {
                 lastScrapeTime = Time.time;
-
+                soundCheese.Play();
+                soundKnife.Play();
+                
                 // Add cheese or religieuse if other not already present
                 if (plateZone.currentPlate.hasIngredient(IngredientTypes.Fromage))
                 {
