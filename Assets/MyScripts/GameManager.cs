@@ -19,14 +19,15 @@ public class GameManager : MonoBehaviour
     public GameObject leftRay;
     public GameObject rightRay;
     private bool isGameOver = false;
-
     private List<GameObject> items = new List<GameObject>();
 
     // Update is called once per frame
     void Update()
     {
+        // Check for game over
         if (isGameOver) return;
 
+        // Count down time
         timeLeft -= Time.deltaTime;
         timeText.text = "Temps restant : " + Mathf.Ceil(timeLeft).ToString() + "s";
         if (timeLeft <= 0)
@@ -34,7 +35,8 @@ public class GameManager : MonoBehaviour
             finishGame();
         }
     }
-    
+
+    // Method to exectute the end of the game
     public void finishGame()
     {
         if (isGameOver) return;
@@ -42,7 +44,7 @@ public class GameManager : MonoBehaviour
         isGameOver = true;
         player.transform.position = endTpPoint.position;
         player.transform.rotation = endTpPoint.rotation;
-        
+
         ContinuousMoveProvider cont = player.GetComponent<ContinuousMoveProvider>();
         if (cont != null)
         {
@@ -61,16 +63,19 @@ public class GameManager : MonoBehaviour
         gameOverManager.ShowGameOverMessage(score);
         gameOverManager.onGameOver();
     }
-
+    
+    // Instantiate and spawn a new customer
     public Customer SpawnNewCustomer(Transform customerSpawnPoint, List<Transform> waypoints)
     {
         int index = Random.Range(0, customerPrefabs.Length);
+        // Craete the object at a specific position
         GameObject customerObj = Instantiate(customerPrefabs[index], customerSpawnPoint.position, customerSpawnPoint.rotation);
         Customer newCustomer = customerObj.GetComponent<Customer>();
         newCustomer.Init(this, waypoints);
         return newCustomer;
     }
 
+    // Generate a random order for a customer
     public List<IngredientTypes> generateRandomOrder()
     {
         List<IngredientTypes> order = new List<IngredientTypes>();
@@ -79,8 +84,10 @@ public class GameManager : MonoBehaviour
 
         foreach (IngredientTypes ingredient in System.Enum.GetValues(typeof(IngredientTypes)))
         {
+            // Skip the cheese as it's always included
             if (ingredient != IngredientTypes.Fromage)
             {
+                // Porcentage is defined at 33 by default
                 if (Random.value < porcentage / 100f)
                 {
                     order.Add(ingredient);

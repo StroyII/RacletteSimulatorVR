@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PlateAttachZone : MonoBehaviour
 {
-
     public Plate plate;
     private GameManager gameManager;
 
@@ -15,6 +14,7 @@ public class PlateAttachZone : MonoBehaviour
     // When triggered by a potato collider, check if it's cooked and add to plate
     void OnTriggerEnter(Collider other)
     {
+        // Check for potato tag
         if (other.CompareTag("Potato"))
         {
             Potato potato = other.GetComponent<Potato>();
