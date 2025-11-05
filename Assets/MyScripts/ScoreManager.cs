@@ -29,6 +29,7 @@ public static class ScoreManager
 
         string sourcePath = Path.Combine(Application.streamingAssetsPath, FileName);
 
+        // Copy from StreamingAssets to persistentDataPath
 #if UNITY_ANDROID && !UNITY_EDITOR
         // Android / Quest : StreamingAssets compressé, on doit utiliser UnityWebRequest
         UnityWebRequest www = UnityWebRequest.Get(sourcePath);

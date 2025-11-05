@@ -16,6 +16,7 @@ public class SettingsManager : MonoBehaviour
         SetMovement();
     }
 
+    // Method to set player movement based on settings
     private void SetMovement()
     {
         if (GameSettings.movementType == 0)

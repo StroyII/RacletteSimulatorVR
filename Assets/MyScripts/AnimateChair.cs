@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class AnimateChair : MonoBehaviour
 {
-    public float startAngle = 0f;    // Angle de départ en X
-    public float endAngle = 30f;     // Angle d'arrivée en X
-    public float duration = 4f;      // Durée d'un aller-retour complet
+    public float startAngle = 0f;   
+    public float endAngle = 30f;     
+    public float duration = 4f;  
     
     private float time = 0f;
 

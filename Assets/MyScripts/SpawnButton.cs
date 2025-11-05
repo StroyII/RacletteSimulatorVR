@@ -67,6 +67,7 @@ public class SpawnButton : MonoBehaviour
         }
     }
 
+    // Update is called once per frame
     void Update()
     {
         if (freeze)

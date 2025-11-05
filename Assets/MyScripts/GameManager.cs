@@ -98,6 +98,7 @@ public class GameManager : MonoBehaviour
         return order;
     }
 
+    // Method to add score
     public void AddScore(int points)
     {
         score += points;
@@ -105,11 +106,13 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Score : " + score;
     }
 
+    // Method to add time
     public void AddTime(float seconds)
     {
         timeLeft += seconds;
     }
 
+    // Register an item to be tracked
     public void RegisterItem(GameObject item)
     {
         items.Add(item);
@@ -121,6 +124,7 @@ public class GameManager : MonoBehaviour
         }
     }
     
+    // Unregister an item
     public void UnregisterItem(GameObject item)
     {
         if (items.Contains(item))

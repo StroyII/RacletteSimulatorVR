@@ -13,11 +13,13 @@ public class UIButtonStart : MonoBehaviour
 
     private Button button;
 
+    // Start is called before the first frame update
     void Start()
     {
         button = GetComponent<Button>();
     }
 
+    // Update is called once per frame
     void Update()
     {
         if (PlayerData.pseudo == "Player1")
@@ -29,6 +31,7 @@ public class UIButtonStart : MonoBehaviour
         }
     }
 
+    // Method to load the specified scene and teleport player in a loading zone
     public void loadScene()
     {
         player.transform.position = tpPoint.position;
@@ -38,6 +41,7 @@ public class UIButtonStart : MonoBehaviour
 
     }
 
+    // Coroutine to load scene asynchronously
     IEnumerator LoadAsync()
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);

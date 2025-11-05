@@ -11,20 +11,25 @@ public class Pepper : MonoBehaviour
     private XRGrabInteractable grab;
     private AudioSource audioSource;
     
+    // Start is called before the first frame update
     void Start()
     {   
         audioSource = GetComponent<AudioSource>();
         sprayZone = sprayZoneObject.GetComponent<PepperSprayZone>();
         grab = GetComponent<XRGrabInteractable>();
+
+        // Listener for grab inpot
         grab.activated.AddListener(SprayPepper);
     }
 
+    // Method called when the spray is activated
     public void SprayPepper(ActivateEventArgs args)
     {
+        // Apply pepper to all plates in the spray zone
         sprayZone.applyPepper();
         audioSource.PlayOneShot(spraySound);
         pepperParticles.Play();
-        
+
     }
 
 }

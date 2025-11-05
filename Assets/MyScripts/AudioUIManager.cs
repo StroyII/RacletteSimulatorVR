@@ -15,6 +15,7 @@ public class AudioUIManager : MonoBehaviour
         AddListenerInActiveScene();
     }
 
+    // Method to add listener to all buttons in the active scene
     public void AddListenerInActiveScene()
     {
         var activeScene = SceneManager.GetActiveScene();
@@ -29,6 +30,7 @@ public class AudioUIManager : MonoBehaviour
 
     }
 
+    // Method to play click sound
     private void PlayClickSound()
     {
         audioSource.PlayOneShot(clickSound);
