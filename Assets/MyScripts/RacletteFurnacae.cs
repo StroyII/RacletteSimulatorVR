@@ -12,7 +12,7 @@ public class RacletteFurnacae : MonoBehaviour
     public AudioSource audioSourceCooking;
     public AudioSource audioSourceReady;
 
-    private CheeseWheel currentCheese;
+    public CheeseWheel currentCheese;
     private XRSocketInteractor socket;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
