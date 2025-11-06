@@ -1,0 +1,10 @@
+# ninja log v5
+82	2866	7841359379959206	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	4fb19ee05abe51d8
+176	2894	7841359380294841	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	8763754e3fc95128
+2	2951	7841359380993547	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	402ed82faa4d0c53
+205	2979	7841359381345416	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	39c1259354453384
+56	3054	7841359382137034	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	ca0473798a1d2403
+141	3296	7841359384635455	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	ed3de3f750ac9f4f
+111	3355	7841359385196655	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	ad09fe17fd135480
+28	3479	7841359386391676	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	487898db7b56a7a
+3479	3720	7841359388851053	C:/Project/Raclette Simulator VR/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/p4252422/obj/arm64-v8a/libgame.so	1a0be3d0994feedb
