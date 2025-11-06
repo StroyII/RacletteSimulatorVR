@@ -13,26 +13,29 @@ public class SpawnButton : MonoBehaviour
     public GameObject objectSpawnedPrefab;
     public ParticleSystem spawnEffect;
     public float resetSpeed = 5f;
-    private bool freeze = false;
 
+    private bool freeze = false;
     private AudioSource audioSource;
     private Vector3 initialLocalPosition;
     private Vector3 offset;
     private Transform pokeAttachTransform;
-
     private XRBaseInteractable interactable;
     private bool isFollowing = false;
+
+    // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        initialLocalPosition = visualTarget.localPosition;
-
         interactable = GetComponent<XRBaseInteractable>();
+        initialLocalPosition = visualTarget.localPosition;
+        
+        // Instanciate interactable and add listeners for interactions with cube
         interactable.hoverEntered.AddListener(Follow);
         interactable.hoverExited.AddListener(ResetBtn);
         interactable.selectEntered.AddListener(spawnObject);
     }
 
+    // Method to make the button follow the poke interactor enters
     public void Follow(BaseInteractionEventArgs hover)
     {
         if (hover.interactorObject is XRPokeInteractor)
@@ -45,15 +48,17 @@ public class SpawnButton : MonoBehaviour
         }
     }
 
+    // Method to reset the button position when poke interactor exits
     public void ResetBtn(BaseInteractionEventArgs hover)
     {
-        if(hover.interactorObject is XRPokeInteractor)
+        if (hover.interactorObject is XRPokeInteractor)
         {
             isFollowing = false;
             freeze = false;
         }
     }
 
+    // Method to spawn the object when the button is pressed
     public void spawnObject(BaseInteractionEventArgs hover)
     {
         if (hover.interactorObject is XRPokeInteractor)
@@ -70,11 +75,13 @@ public class SpawnButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If frozen, do nothing
         if (freeze)
         {
             return;
         }
 
+        // Update visual target position
         if (isFollowing)
         {
             Vector3 localTargetPosition = visualTarget.InverseTransformPoint(pokeAttachTransform.position + offset);

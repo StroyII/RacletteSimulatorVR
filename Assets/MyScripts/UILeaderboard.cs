@@ -16,24 +16,31 @@ public class UILeaderboard : MonoBehaviour
         DisplayLeaderboard();
     }
 
+    // Method to display the leaderboard entries
     private void DisplayLeaderboard()
     {
-        List<ScoreEntry> scores = ScoreManager.GetTopNScores(50);
+        // Get top 100 scores
+        List<ScoreEntry> scores = ScoreManager.GetTopNScores(100);
 
+        // Sort scores in descending order
         scores.Sort((a, b) => b.score.CompareTo(a.score));
 
+        // Clear existing entries
         foreach (Transform child in contentParent)
         {
             Destroy(child.gameObject);
         }
 
+        // Instantiate entry prefab for each score
         foreach (var score in scores)
         {
+            // create entry game object
             GameObject entryGO = Instantiate(entryPrefab, contentParent);
             entryGO.transform.localScale = Vector3.one;
             TMPro.TextMeshProUGUI entryText = entryGO.GetComponent<TMPro.TextMeshProUGUI>();
-            entryText.text = num.ToString() + ". " + score.pseudo + " - " + score.score.ToString();
             
+            // Set entry text
+            entryText.text = num.ToString() + ". " + score.pseudo + " - " + score.score.ToString();
             num++;
         }
     }

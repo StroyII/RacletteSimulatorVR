@@ -9,13 +9,16 @@ using UnityEngine.Networking;
 
 public static class ScoreManager
 {
+    // Name of the score file
     private static string FileName = "scores.json";
 
+    // Get the full path to the persistent score file
     private static string GetPersistentPath()
     {
         return Path.Combine(Application.persistentDataPath, FileName);
     }
 
+    // Ensure the score file exists in persistent data path
     private static void EnsureFileExists()
     {
         string persistentPath = GetPersistentPath();
@@ -42,7 +45,6 @@ public static class ScoreManager
         }
         else
         {
-            Debug.LogError("Impossible de copier scores.json depuis StreamingAssets : " + www.error);
             File.WriteAllText(persistentPath, "{\"scores\":[]}");
         }
 #else
@@ -54,12 +56,14 @@ public static class ScoreManager
 #endif
     }
 
+    // Save the current player's score to the score file
     public static void SaveCurrentPlayerScore()
     {
         EnsureFileExists();
 
         var scoreList = LoadScoreList();
 
+        // Create a new score entry
         ScoreEntry entry = new ScoreEntry(
             PlayerData.pseudo,
             PlayerData.score,
@@ -68,12 +72,12 @@ public static class ScoreManager
 
         scoreList.scores.Add(entry);
 
+        // Serialize and save back to file
         string json = JsonUtility.ToJson(scoreList);
         File.WriteAllText(GetPersistentPath(), json);
-
-        Debug.Log($"Score sauvegardé : {PlayerData.pseudo} - {PlayerData.score}");
     }
 
+    // Load the score list from the score file
     public static ScoreList LoadScoreList()
     {
         EnsureFileExists();
@@ -84,6 +88,7 @@ public static class ScoreManager
         return list ?? new ScoreList();
     }
 
+    // Get the top N scores from the score list
     public static List<ScoreEntry> GetTopNScores(int n)
     {
         List<ScoreEntry> all = LoadScoreList().scores;
