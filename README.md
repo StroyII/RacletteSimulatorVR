@@ -1,33 +1,36 @@
 # Raclette Simulator VR
 
-### Détails du projet
-Raclette simulator VR est un projet un jeu vidéo réalisé sous Unity ou le joueur incarne un cuisinier servant un maximum de raclettes à des clients en un temps imparti !
+### Project details
+Raclette Simulator VR is a third-year computer science school project. It's a video game where you play as a cook who needs to make as many raclettes as possible in a short amount of time!
 
-### Objectifs
-- Créer un environnement VR interactif
-- Permettre au joueur d'interargir avec les différents éléments qui lui sont présentés
-- Satisfaire des clients avec plusieurs types de raclette (Fromage, Patates, Poivre, Religieuse)
-- Faire le meilleur score dans un temps qui descent constamment 
+### Objectives
+- Create an interactive **VR environment**
+- Let the player **interact with the surroundings**
+- Satisfy customers with **multiple raclette types**
+- Achieve the **best score** in a reduced amount of time
 
-### Membres
-#### Chefs du projet :
-- @jeremy.michaud.eptm
-- @martludo
-- @pascal.rapaz
-- @yanfonedu
+### Try the game
 
-#### Développeur :
-- @axeltruta803
+If you want to try out the game by yourself the build is free on [itch.io](https://stroyii.itch.io/raclette-simulator-vr)
 
-### Methodologie
+### Members
+**Dev** :
 
-La liste des technologies utilisées pour la réalisation du projet sont :
+- **Axel Truta** — [StroyII](https://github.com/StroyII)
 
-- **Unity** - Comme game engine
-- **C#** - Comme language de programmation principal
-- **Gitlab** - Comme application de versioning
+**Music** : 
+- **Hugo Pozzi** — [Yougo-rgb](https://github.com/Yougo-rgb)
 
+### Stack
+
+The game was made using the **Unity engine**
+
+3D models were created on **Blender**
+
+Music and sound effect were created on **Reaper**
 
 ### Notes
 
-Ce projet à d'abord été versionné à l'aide du **Unity DevOps Version Control**, il à été transféré sur gitlab le 17.09.2025 pour que tous les chefs du projet aient acces. Voila pourquoi le premier commit commence avec tant de fonctionnalités
+The game is only available in french due to being a school project.
+
+This project was initially versioned using **Unity DevOps Version Control** and was transferred to Github on September 17, 2025 so that all project leads would have access. That's why the first commit starts with so many features.
